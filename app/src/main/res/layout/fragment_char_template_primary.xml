@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.charTemplatePrimary">
+
+
+    <TextView
+        android:id="@+id/nameTxt"
+        android:layout_width="158dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="36dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="36dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/archetypeTxt"
+        android:layout_width="92dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="22dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/nameTxt" />
+
+    <TextView
+        android:id="@+id/levelTxt"
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="23dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/levelLabel"
+        app:layout_constraintTop_toBottomOf="@+id/nameTxt" />
+
+    <ImageButton
+        android:id="@+id/psDownbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:src="@android:drawable/arrow_down_float"
+        app:layout_constraintStart_toEndOf="@+id/psTxt"
+        app:layout_constraintTop_toBottomOf="@+id/psUpButton" />
+
+    <ImageButton
+        android:id="@+id/psUpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="35dp"
+        android:src="@android:drawable/arrow_up_float"
+        app:layout_constraintStart_toEndOf="@+id/psTxt"
+        app:layout_constraintTop_toBottomOf="@+id/levelTxt" />
+
+    <TextView
+        android:id="@+id/psLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="54dp"
+        android:text="@string/ps"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/diceTxt"
+        app:layout_constraintTop_toBottomOf="@+id/archetypeTxt" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="38dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diceTxt">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:id="@+id/evaLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/gray"
+                android:padding="8dip"
+                android:text="@string/eva"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/impLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/gray"
+                android:padding="8dip"
+                android:text="@string/imp"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/punLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/gray"
+                android:padding="8dip"
+                android:text="@string/pun"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/magLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/gray"
+                android:padding="8dip"
+                android:text="@string/mag"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/fzaLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/gray"
+                android:padding="8dip"
+                android:text="@string/fza"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/aglLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/gray"
+                android:padding="8dip"
+                android:text="@string/agl"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/perLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/gray"
+                android:padding="8dip"
+                android:text="@string/per"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/carLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/gray"
+                android:padding="8dip"
+                android:text="@string/car"
+                android:textAlignment="center" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/evaTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dip"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/impTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dip"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/punTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dip"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/magTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dip"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/fzaTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dip"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/aglTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dip"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/perTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dip"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/carTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dip"
+                android:textAlignment="center" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/psCurrentTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="56dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/psLabel"
+        app:layout_constraintTop_toBottomOf="@+id/archetypeTxt" />
+
+    <TextView
+        android:id="@+id/psTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/archetypeTxt" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="21dp"
+        android:layout_marginTop="53dp"
+        android:text="/"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/psCurrentTxt"
+        app:layout_constraintTop_toBottomOf="@+id/archetypeTxt" />
+
+    <TextView
+        android:id="@+id/diceTxt"
+        android:layout_width="130dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/levelLabel"
+        android:layout_width="37dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="23dp"
+        android:text="@string/lvl"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/archetypeTxt"
+        app:layout_constraintTop_toBottomOf="@+id/nameTxt" />
+
+    <TextView
+        android:id="@+id/descriptionTxt"
+        android:layout_width="346dp"
+        android:layout_height="172dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="76dp"
+        android:text="Description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

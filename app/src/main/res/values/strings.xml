@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">RolHelper</string>
+    <string name="nuevo_personajeButton">new Character</string>
+    <string name="title_activity_char_template">CharTemplate_activity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="pun">PUN</string>
+    <string name="mag">MAG</string>
+    <string name="imp">IMP</string>
+    <string name="eva">EVA</string>
+    <string name="fza">FZA</string>
+    <string name="agl">AGL</string>
+    <string name="per">PER</string>
+    <string name="car">CAR</string>
+    <string name="_psHint">15</string>
+    <string name="description">Description:</string>
+    <string name="ps">PS</string>
+    <string name="_lvlHint">1</string>
+    <string name="classHint">Class</string>
+    <string name="nameHint">Name</string>
+    <string name="lvlhint">LVL</string>
+    <string name="lvl">LVL</string>
+
+
+</resources>
