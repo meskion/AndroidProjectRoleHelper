@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
     LinearLayout templates;
     Button newChar;
-    ArrayAdapter<Integer> adp;
     Map<Integer,String> chars;
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -68,13 +67,13 @@ public class MainActivity extends AppCompatActivity {
 
             tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             tv.setText(String.valueOf(k) + " - " + chars.get(k));
-            Toast.makeText(this, String.valueOf(k), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, String.valueOf(k), Toast.LENGTH_SHORT).show();
             tv.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             templates.addView(tv);
             tv.setOnClickListener(view -> {
                 Intent next = new Intent(this, charTemplateActivity.class);
                 CharTemplate ch =  CharTemplateRepository.getInstance(this).findById(k);
-                Toast.makeText(this, ch.getName(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, ch.getName(), Toast.LENGTH_SHORT).show();
                 next.putExtra("template",ch);
                 startActivity(next);
             });

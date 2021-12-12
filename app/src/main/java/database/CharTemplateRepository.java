@@ -18,7 +18,7 @@ public class CharTemplateRepository {
     private static CharTemplateRepository instance;
     private Context cxt;
 
-    public CharTemplateRepository(Context context) {
+    private CharTemplateRepository(Context context) {
         sqlHelper = new CharSQLiteOpenHelper(context, "administracion", null, 1);
 
     }
