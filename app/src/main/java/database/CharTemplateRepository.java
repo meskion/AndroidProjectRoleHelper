@@ -19,7 +19,7 @@ public class CharTemplateRepository {
     private Context cxt;
 
     private CharTemplateRepository(Context context) {
-        sqlHelper = new CharSQLiteOpenHelper(context, "administracion", null, 1);
+        sqlHelper = CharSQLiteOpenHelper.getInstance(context);
 
     }
 
@@ -50,6 +50,7 @@ public class CharTemplateRepository {
         values.put("archetype", ch.getArchetype());
         values.put("description", ch.getDescription());
         values.put("notes", ch.getNotes());
+        values.put("image", ch.getImage());
         if (isNew) {
             db.insert("charTemplate", null, values);
 
@@ -100,7 +101,8 @@ public class CharTemplateRepository {
                     charRow.getString(11),
                     charRow.getString(12),
                     charRow.getString(13),
-                    charRow.getString(14)
+                    charRow.getString(14),
+                    charRow.getBlob(15)
             );
         }
         return ch;

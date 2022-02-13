@@ -7,8 +7,17 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class CharSQLiteOpenHelper  extends SQLiteOpenHelper {
-    public CharSQLiteOpenHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+
+    public static CharSQLiteOpenHelper instance;
+    private  CharSQLiteOpenHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
+    }
+    public static CharSQLiteOpenHelper getInstance(Context context){
+        if (instance == null){
+            instance =  new CharSQLiteOpenHelper(context, "administracion", null, 1);
+        }
+        
+        return instance;
     }
 
     @Override
@@ -29,7 +38,8 @@ public class CharSQLiteOpenHelper  extends SQLiteOpenHelper {
                 " name text," +
                 " archetype text," +
                 " description text," +
-                " notes text)" );
+                " notes text, "+
+                " image blob)" );
 
     }
 

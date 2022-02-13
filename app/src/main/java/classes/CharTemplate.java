@@ -4,17 +4,19 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CharTemplate  implements Serializable {
+public class CharTemplate implements Serializable {
 
-    private int  id, level, ps, eva, imp, pun, mag, fza, agl, per, car;
+    private int id, level, ps, eva, imp, pun, mag, fza, agl, per, car;
     private String name, archetype, description, notes;
 
+
+    private byte[] image;
 
     public CharTemplate() {
 
     }
 
-    public CharTemplate(int id, int level, int ps, int eva, int imp, int pun, int mag, int fza, int agl, int per, int car, String name, String archetype, String description, String notes) {
+    public CharTemplate(int id, int level, int ps, int eva, int imp, int pun, int mag, int fza, int agl, int per, int car, String name, String archetype, String description, String notes, byte[] image) {
         this.id = id;
         this.level = level;
         this.ps = ps;
@@ -30,6 +32,7 @@ public class CharTemplate  implements Serializable {
         this.archetype = archetype;
         this.description = description;
         this.notes = notes;
+        this.image = image;
     }
 
     public int getId() {
@@ -152,5 +155,12 @@ public class CharTemplate  implements Serializable {
         this.notes = notes;
     }
 
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
 
 }
