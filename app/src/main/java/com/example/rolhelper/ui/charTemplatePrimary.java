@@ -4,6 +4,8 @@ import static java.lang.Math.ceil;
 import static java.lang.Math.floor;
 
 import android.app.Fragment;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +47,7 @@ public class charTemplatePrimary extends Fragment {
     TextView archetypeTxt;
     TextView descriptionTxt;
     ImageButton psUp, psDown;
+    ImageView charImage;
     TextView DiceTxt;
     SoundPool sp;
     int sound;
@@ -75,6 +79,11 @@ public class charTemplatePrimary extends Fragment {
         archetypeTxt.setText(ch.getArchetype());
         descriptionTxt.setText(ch.getDescription());
         currentPsTxt.setText((String.valueOf(ch.getPs())));
+        byte[] imageByteArray = ch.getImage();
+        if (imageByteArray!=null) {
+            Bitmap image = BitmapFactory.decodeByteArray(imageByteArray, 0, imageByteArray.length);
+            charImage.setImageBitmap(image);
+        }
     }
 
     /**
@@ -121,6 +130,7 @@ public class charTemplatePrimary extends Fragment {
         psUp = view.findViewById(R.id.psUpButton);
         psDown = view.findViewById(R.id.psDownbutton);
         DiceTxt = view.findViewById(R.id.diceTxt);
+        charImage = view.findViewById(R.id.charImage);
         displayTemplate();
 
         psUp.setOnClickListener(v -> {

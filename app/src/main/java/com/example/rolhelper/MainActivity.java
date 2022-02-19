@@ -72,9 +72,9 @@ public class MainActivity extends AppCompatActivity {
             templates.addView(tv);
             tv.setOnClickListener(view -> {
                 Intent next = new Intent(this, charTemplateActivity.class);
-                CharTemplate ch =  CharTemplateRepository.getInstance(this).findById(k);
+
                 //Toast.makeText(this, ch.getName(), Toast.LENGTH_SHORT).show();
-                next.putExtra("template",ch);
+                next.putExtra("templateId",k);
                 startActivity(next);
             });
 

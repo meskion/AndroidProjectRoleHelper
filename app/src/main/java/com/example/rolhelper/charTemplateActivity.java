@@ -14,6 +14,7 @@ import com.example.rolhelper.ui.charTemplateNotes;
 import com.example.rolhelper.ui.charTemplatePrimary;
 
 import classes.CharTemplate;
+import database.CharTemplateRepository;
 
 public class charTemplateActivity extends AppCompatActivity {
 
@@ -32,8 +33,8 @@ public class charTemplateActivity extends AppCompatActivity {
         editButton = findViewById(R.id.editButton);
         backButton = findViewById(R.id.backButton);
 
-        template = (CharTemplate) getIntent().getSerializableExtra("template");
-
+        int charId = getIntent().getIntExtra("templateId",-1);
+        template =  CharTemplateRepository.getInstance(this).findById(charId);
         charTemplatePrimary frag1 = charTemplatePrimary.newInstance(template);
         charTemplateNotes frag4 = charTemplateNotes.newInstance(template);
 
@@ -56,7 +57,7 @@ public class charTemplateActivity extends AppCompatActivity {
 
         editButton.setOnClickListener(view -> {
             Intent next = new Intent(this, charTemplateEditActivity.class);
-            next.putExtra("template", template);
+            next.putExtra("templateId", template.getId());
             startActivityForResult(next, 1);
         });
 

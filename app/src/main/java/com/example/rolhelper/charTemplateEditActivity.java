@@ -36,7 +36,8 @@ public class charTemplateEditActivity extends AppCompatActivity {
         deleteButton = findViewById(R.id.deleteButton);
         backbutton = findViewById(R.id.backButton);
 
-        CharTemplate ch = (CharTemplate) getIntent().getSerializableExtra("template");
+        int charId = getIntent().getIntExtra("templateId",-1);
+        CharTemplate ch = CharTemplateRepository.getInstance(this).findById(charId);
         if (ch == null) {
             newTemplate();
             Toast.makeText(this, "New char", Toast.LENGTH_SHORT).show();

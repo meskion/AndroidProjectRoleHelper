@@ -1,14 +1,29 @@
 package com.example.rolhelper.ui;
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.rolhelper.R;
+
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 
 import classes.CharTemplate;
 
@@ -19,6 +34,7 @@ import classes.CharTemplate;
  */
 public class charTemplatePrimaryEdit extends Fragment {
 
+    private static final int RESULT_LOAD_IMG = 200;
     private CharTemplate ch;
 
     EditText levelTxtEdit;
@@ -34,6 +50,8 @@ public class charTemplatePrimaryEdit extends Fragment {
     EditText nameTxtEdit;
     EditText archetypeTxtEdit;
     EditText descriptionTxtEdit;
+    ImageView charImage;
+    Button imageButton;
 
     public CharTemplate getTemplate() {
         fillTemplate();
@@ -83,6 +101,7 @@ public void fillTemplate(){
     ch.setName(nameTxtEdit.getText().toString());
     ch.setArchetype(archetypeTxtEdit.getText().toString());
     ch.setDescription(descriptionTxtEdit.getText().toString());
+
 }
 
 
@@ -104,9 +123,43 @@ public void fillTemplate(){
         nameTxtEdit = view.findViewById(R.id.nameTxtEdit);
         archetypeTxtEdit = view.findViewById(R.id.archetypeTxtEdit);
         descriptionTxtEdit = view.findViewById(R.id.descriptionTxtEdit);
+        charImage = view.findViewById(R.id.charImage);
+        imageButton = view.findViewById(R.id.imageEditButton);
+        imageButton.setOnClickListener(v ->{
+                Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+                 photoPickerIntent.setType("image/*");
+                 startActivityForResult(photoPickerIntent, RESULT_LOAD_IMG);
+                });
         displayTemplate();
 
+
+
         return view;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK) {
+            switch (requestCode){
+                case RESULT_LOAD_IMG:
+                    Uri selectedImage = data.getData();
+                    try {
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), selectedImage);
+                        charImage.setImageBitmap(bitmap);
+                        ch.setImage(getBitmapAsByteArray(bitmap));
+                    } catch (IOException e) {
+                        Log.i("TAG", "Some exception " + e);
+                    }
+                    break;
+            }
+        }
+    }
+
+    private static byte[] getBitmapAsByteArray(Bitmap bitmap) {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0, outputStream);
+        return outputStream.toByteArray();
     }
 
     private void displayTemplate() {
@@ -123,5 +176,10 @@ public void fillTemplate(){
         nameTxtEdit.setText(ch.getName());
         archetypeTxtEdit.setText(ch.getArchetype());
         descriptionTxtEdit.setText(ch.getDescription());
+        byte[] imageByteArray = ch.getImage();
+        if (imageByteArray!=null) {
+            Bitmap image = BitmapFactory.decodeByteArray(imageByteArray, 0, imageByteArray.length);
+            charImage.setImageBitmap(image);
+        }
     }
 }
